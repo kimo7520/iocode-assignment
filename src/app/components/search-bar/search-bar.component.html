@@ -1,2 +1,14 @@
-<input type="text" (keyup)="autocomplete($event)" placeholder="Enter movie name" #input>
-<button type="button" (click)="search(input.value)">Search</button>
+<input
+  type="text"
+  (focus)="displayHistory($event)"
+  (blur)="isFocused = false"
+  (keyup)="autocomplete($event)"
+  placeholder="Enter movie name"
+  #input
+/>
+<button type="button" (click)="search(input.value)">
+  Search
+</button>
+<div *ngIf="isFocused" class="results">
+    <p *ngFor="let result of results">{{result}}</p>
+</div>
