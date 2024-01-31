@@ -1,1 +1,2 @@
-<app-search-bar></app-search-bar>
+<app-search-bar (movieEmitter)="movieReceiver($event)"></app-search-bar>
+<app-movies-list [movies]="movies" (refillMovies)="getMoviesByPage()"></app-movies-list>

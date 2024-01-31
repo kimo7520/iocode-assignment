@@ -1,0 +1,14 @@
+<div
+  class="fixed-height"
+  infinite-scroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="500"
+  (scrolled)="requestMovies()"
+  [scrollWindow]="false"
+>
+  <p *ngFor="let movie of movies">
+    <a [routerLink]="['/overview', movie.id]" (click)="addToPrevious(movie)">
+			{{movie.title}}
+		</a>
+  </p>
+</div>
