@@ -1,0 +1,7 @@
+<ng-container *ngIf="overview">
+  <img
+    [src]="moviesService.imageURL + overview.backdrop_path"
+    [alt]="overview.title"
+  />
+  <button (click)="export()">Export</button>
+</ng-container>
