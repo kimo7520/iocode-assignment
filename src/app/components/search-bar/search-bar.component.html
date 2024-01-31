@@ -6,9 +6,9 @@
   placeholder="Enter movie name"
   #input
 />
-<button type="button" (click)="search(input.value)">
+<button type="button">
   Search
 </button>
 <div *ngIf="isFocused" class="results">
-    <p *ngFor="let result of filteredResults">{{result}}</p>
+    <a *ngFor="let result of filteredResults" [routerLink]="['/overview', result.id]">{{result.title}}</a>
 </div>
