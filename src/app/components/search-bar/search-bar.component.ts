@@ -30,7 +30,6 @@ export class SearchBarComponent implements OnInit {
   movieControl = new FormControl<string>('');
 
   constructor(private previousMoviesService: PreviousMoviesService, private router: Router) {}
-  //TODO put the previous movies in a service
   ngOnInit(): void {
     this.previousMoviesService.previousMovies$
       .asObservable()
