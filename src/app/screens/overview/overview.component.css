@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  /* flex-wrap: wrap; */
+  gap: 10px;
+}
+
+.mat-column-item{
+    border-right: 1px solid white;
+}
+
+.overview-btn{
+    display: block;
+    width: 100%;
+    border-radius: 1rem;
+    font-size: larger;
+}
+
+@media screen and (max-width: 400px) {
+    .container{
+        flex-wrap: wrap;
+    }
+    .container img{
+        width: 350px;
+    }
+    .img-container{
+        margin: auto;
+    }
+    .details{
+        margin: auto;
+        width: 350px;
+        overflow: auto;
+    }
+}

@@ -1,7 +1,39 @@
 <ng-container *ngIf="overview">
-  <img
-    [src]="moviesService.imageURL + overview.backdrop_path"
-    [alt]="overview.title"
-  />
-  <button (click)="export()">Export</button>
+  <div class="container">
+    <div class="img-container">
+      <img
+        [src]="moviesService.imageURL + overview.backdrop_path"
+        [alt]="overview.title"
+      />
+      <button
+        mat-raised-button
+        color="primary"
+        class="overview-btn"
+        (click)="export()"
+      >
+        Export
+      </button>
+    </div>
+    <div class="details">
+      <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+        <ng-container matColumnDef="item">
+          <th mat-header-cell *matHeaderCellDef>Info</th>
+          <td mat-cell *matCellDef="let row">{{ row.item | removeUndescore }}</td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <ng-container matColumnDef="value">
+          <th mat-header-cell *matHeaderCellDef>Data</th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.value }}
+          </td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+      </table>
+    </div>
+  </div>
 </ng-container>
