@@ -1,4 +1,4 @@
-<div
+<main
   class="fixed-height"
   infinite-scroll
   [infiniteScrollDistance]="2"
@@ -6,9 +6,43 @@
   (scrolled)="requestMovies()"
   [scrollWindow]="false"
 >
-  <p *ngFor="let movie of movies">
-    <a [routerLink]="['/overview', movie.id]" (click)="addToPrevious(movie)">
-			{{movie.title}}
-		</a>
-  </p>
-</div>
+  <div class="grid">
+    <ng-container *ngIf="movies.length; else noMovies">
+    <ng-container *ngFor="let movie of movies">
+      <ng-container *ngIf="movie.backdrop_path">
+        <a
+          [routerLink]="['/overview', movie.id]"
+          (click)="addToPrevious(movie)"
+        >
+          <mat-card class="card-container">
+            <mat-card-header class="container">
+              <img
+                class="image"
+                mat-card-image
+                [src]="imageURL + movie.backdrop_path"
+                [alt]="movie.title"
+              />
+              <div class="middle">
+                <div class="overview">
+                  {{ movie.overview }}
+                </div>
+              </div>
+            </mat-card-header>
+            <mat-card-content>
+              <h3 class="title">
+                {{ movie.title }}
+              </h3>
+              <h4>
+                {{ movie.release_date }}
+              </h4>
+            </mat-card-content>
+          </mat-card>
+        </a>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+  </div>
+  <ng-template #noMovies>
+    <p *ngIf="movieName" class="not-found">No movies found</p>
+  </ng-template>
+</main>

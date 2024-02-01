@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { ReplaySubject } from 'rxjs';
 import { Movie } from '../models/movie.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PreviousMoviesService {
-  previousMovies$ = new BehaviorSubject<Movie | undefined>(undefined);
+  previousMovies$ = new ReplaySubject<Movie | undefined>(10);
   constructor() { }
 }

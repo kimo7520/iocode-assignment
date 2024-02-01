@@ -1,3 +1,38 @@
-.results{
-    position: absolute;
+.container {
+  margin: auto;
+  text-align: center;
+}
+.search-container {
+  /* display: flex; */
+  padding-inline: 9rem;
+}
+.search {
+  display: inline-block;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 1rem;
+	border-color: black;
+}
+.search-container > button {
+	border-radius: 1rem;
+	border-color: black;
+	background-color: rgb(37, 64, 65);
+	padding: 8px;
+}
+.search-container span{
+	color: white;
+}
+.results {
+  /* position: absolute; */
+	/* margin: auto;
+	margin-inline: 9rem; */
+	margin-inline: 9rem;
+	padding: 1rem;
+	background-color: gray;
+}
+@media screen and (max-width: 400px) {
+	.search-container {
+		/* display: flex; */
+		padding-inline: 0;
+	  }
 }
