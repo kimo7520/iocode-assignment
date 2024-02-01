@@ -1,6 +1,7 @@
 <ng-container *ngIf="overview">
   <div class="container">
     <div class="img-container">
+      <h2>{{overview.title}}</h2>
       <img
         [src]="moviesService.imageURL + overview.backdrop_path"
         [alt]="overview.title"
