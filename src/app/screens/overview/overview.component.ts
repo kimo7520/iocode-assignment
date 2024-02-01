@@ -59,10 +59,7 @@ export class OverviewComponent implements OnInit {
   displayedColumns: string[] = ['item', 'value'];
   datasource: cloumns[] = [];
 
-  /** Gets the total cost of all transactions. */
 
-
- 
  
 
 }
